@@ -13,17 +13,17 @@
 
     <!-- FORMULARIO HACIENDO USO DE FUNCIONES CODEIGNITER -->
     <div class="form-group">
-      <?php echo form_label('Precio:', 'txt-precio')  ?>
-      <?php echo form_input(['id'=>'txt-precio',
+      <?php echo form_label('Precio:', 'txt-precio'); ?>
+      <?php echo form_input(array('id'=>'txt-precio',
                             'name'=>'precio',
                             'value'=>set_value('precio'),
                             'placeholder'=>'Ingrese un precio',
-                            'class'=>'form-control']); ?>
+                            'class'=>'form-control')); ?>
       <?php echo form_error('precio'); ?>
     </div>
 
-    <?php echo form_submit(['value'=>'Guardar',
-    'class'=>'btn btn-primary']); ?>
+    <?php echo form_submit(array('value'=>'Guardar',
+    'class'=>'btn btn-primary')); ?>
     <!-- EL BOTON TAMBIEN PUEDE SER UN INPUT HTML -->
   <?php echo form_close(); ?>
   <!-- La funcion set_value() permite mantener los datos ingresado,

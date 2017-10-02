@@ -15,4 +15,8 @@
   <a href="<?php echo site_url('practica/segmento/Juan/23');?>">
     4. Peticion get con parametros
   </a>
+  <br/>
+  <a href="<?php echo site_url('curso');?>">
+    5. Lista de cursos
+  </a>
 <?php $this->load->view('template/footer'); ?>

@@ -60,6 +60,9 @@ $route['practica/login/(:any)/(:any)'] = 'practica_controller/loginusuario/$1/$2
 $route['curso'] = 'curso_controller';
 $route['curso/nuevo'] = 'curso_controller/nuevo';
 $route['curso/guardar'] = 'curso_controller/guardar';
+$route['curso/detalle/(:num)'] = 'curso_controller/detalle/$1';
+$route['curso/editar/(:num)'] = 'curso_controller/editar/$1';
+$route['curso/eliminar/(:num)'] = 'curso_controller/eliminar/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
