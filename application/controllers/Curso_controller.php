@@ -14,7 +14,31 @@ class Curso_controller extends CI_Controller {
 
   public function index(){
     // Obtenemos todos los registros de la bd
-    $data['cursos']=$this->curso_model->listAll();
+    // $data['cursos']=$this->curso_model->listAll();
+
+    /*--- begin Pagination ---*/
+    // Número de registros mostrados por páginas
+    $pages=5;
+    // Cargamos la librería de paginación
+    $this->load->library('pagination');
+    // Parametro base de la aplicación
+    // Si no se ha limpiado la url base_url().'index.php/curso_controller/index';
+    $config['base_url'] = base_url().'curso_controller/index';
+    // Calcula el número de filas
+    $config['total_rows'] = $this->curso_model->total_cursos();
+    // Número de registros mostrados por páginas
+    $config['per_page'] = $pages;
+    //Número de links mostrados en la paginación
+    $config['num_links'] = 4;
+    // Segmento de la paginación
+    $config["uri_segment"] = 3;
+    // Inicializar la paginación
+    $this->pagination->initialize($config);
+    // Obtener los curoso paginados
+    $cursos=$this->curso_model->total_paginados($config['per_page'],$this->uri->segment(3));
+    $data["cursos"] = $cursos;
+    /*--- end Pagination ---*/
+
     // Invocamos a la vista
     $this->load->view('curso/curso_view',$data);
   }

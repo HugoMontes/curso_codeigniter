@@ -32,6 +32,9 @@
     </tr>
   <?php } ?>
 </table>
+<div style="text-align: center;">
+  <?php echo $this->pagination->create_links(); ?>
+</div>
 <?php $this->load->view('template/footer'); ?>
 <script type="text/javascript">
   $('.btn-eliminar').on('click',function(event){

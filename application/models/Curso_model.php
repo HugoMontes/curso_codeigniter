@@ -51,4 +51,21 @@ class Curso_model extends CI_Model {
     // que expresa en nro de registros actualizados
     return $this->db->delete($this->TABLE_NAME);
   }
+
+  ###################################################
+  # Begin : Pagination
+  ###################################################
+  // Total de registros para la paginacion
+  function total_cursos(){
+    $query = $this->db->get($this->TABLE_NAME);
+    return  $query->num_rows() ;
+  }
+  // Total paginados segun el segmento
+  function total_paginados($por_pagina, $segmento){
+    $query = $this->db->get($this->TABLE_NAME, $por_pagina, $segmento);
+    return $query->result();
+  }
+  ###################################################
+  # End : Pagination
+  ###################################################
 }
