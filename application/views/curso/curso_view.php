@@ -25,7 +25,7 @@
         <a href="<?php echo site_url('curso/editar/'.$curso->id); ?>" title="Editar">
           <span class="glyphicon glyphicon-pencil"></span>
         </a>
-        <a href="<?php echo site_url('curso/eliminar/'.$curso->id); ?>" title="Eliminar">
+        <a href="<?php echo site_url('curso/eliminar/'.$curso->id); ?>" class="btn-eliminar" title="Eliminar">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
       </td>
@@ -33,3 +33,14 @@
   <?php } ?>
 </table>
 <?php $this->load->view('template/footer'); ?>
+<script type="text/javascript">
+  $('.btn-eliminar').on('click',function(event){
+    event.preventDefault();
+    var curso=$(this).parent().parent().children().eq(1).text();
+    if(confirm('Esta seguro de eliminar el curso '+curso+'?')){
+      var url=$(this).attr('href');
+      $(location).attr('href',url);
+    }
+    return false;
+  });
+</script>

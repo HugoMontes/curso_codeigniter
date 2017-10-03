@@ -13,17 +13,17 @@ class Curso_controller extends CI_Controller {
   }
 
   public function index(){
-    // OBTENEMOS TODOS LOS REGISTROS DE LA BD
+    // Obtenemos todos los registros de la bd
     $data['cursos']=$this->curso_model->listAll();
-    // INVOCAMOS A LA VISTA
+    // Invocamos a la vista
     $this->load->view('curso/curso_view',$data);
   }
 
   public function nuevo(){
-    // CARGAMOS FUNCIONES PARA GENERAR EL FORMULARIO
-    // LA SIGUIENTE LINEA USUALMENTE VA EN EL CONSTRUCTOR
+    // Cargamos funciones para generar el formulario
+    // La siguiente linea usualmente va en el constructor
     $this->load->helper('form');
-    // INVOCAMOS A LA VISTA PARA RENDERIZAR EL FORMULARIO
+    // Invocamos a la vista para renderizar el formulario
     $this->load->view('curso/nuevo_view');
   }
 
