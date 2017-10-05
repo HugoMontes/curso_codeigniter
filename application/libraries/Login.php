@@ -1,15 +1,15 @@
 <?php
 defined("BASEPATH") or die("El acceso al script no está permitido");
 class Login{
-	private $data = array();
-	public function __construct(array $params){
-        $this->data = $params;
-     }
-	public function verificar(){
-		if($this->data["nombre"]=="admin"&&
-		   $this->data["password"]=="123456"){
-			return "El usuario es valido....";
-		}
-		return "Usuario invalido...";
-	}
+  private $CI;
+  public function __construct(){
+    $this->CI =& get_instance();
+    $this->CI->load->library('session');
+  }
+  public function verify_user(){
+    if(!$this->CI->session->userdata('logged_in')){
+      // Si no existe sesion, se redirecciona a login
+      redirect('login_controller', 'refresh');
+    }
+  }
 }

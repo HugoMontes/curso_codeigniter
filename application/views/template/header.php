@@ -49,7 +49,14 @@
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('logged_in')['username']; ?> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Perfil</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="<?php echo site_url('logout');?>">Cerrar sesion</a></li>
+              </ul>
+            </li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">

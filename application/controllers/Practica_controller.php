@@ -6,6 +6,8 @@ class Practica_controller extends CI_Controller {
   function __construct(){
     parent::__construct();
     $this->load->helper('url');
+    $this->load->library('login');
+    $this->login->verify_user();
   }
 
   public function mostrarDatos(){
@@ -41,16 +43,16 @@ class Practica_controller extends CI_Controller {
 		$this->load->view('practica/practica4_view',$data);
 	}
 
-  public function loginUsuario($nombre, $password){
+  public function autorizaUsuario($nombre, $password){
 		// Se preparan los parametros a ser enviados
 		$params = array(
 		    "nombre"	=>	$nombre,
 		    "password"	=>	$password
 		);
 		// Se carga la libreria pasando los parametros
-		$this->load->library('login', $params);
+		$this->load->library('autoriza', $params);
 		// Se llama a la funcion de la libreria
-		$data['mensaje']=$this->login->verificar();
+		$data['mensaje']=$this->autoriza->verificar();
 		$this->load->view('practica/practica5_view',$data);
 	}
 }

@@ -49,13 +49,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'principal_controller';
+$route['default_controller'] = 'login_controller';
 $route['practica/codeigniter'] = 'welcome';
 $route['practica/datos'] = 'practica_controller/mostrardatos';
 $route['practica/coleccion'] = 'practica_controller/listallpersonas';
 $route['practica/segmento/(:any)/(:num)'] = 'practica_controller/verificaedad/$1/$2';
 $route['practica/calculadora/(:num)/(:num)'] = 'practica_controller/realizarCalculo/$1/$2';
-$route['practica/login/(:any)/(:any)'] = 'practica_controller/loginusuario/$1/$2';
+$route['practica/autoriza/(:any)/(:any)'] = 'practica_controller/autorizausuario/$1/$2';
 
 $route['curso'] = 'curso_controller';
 $route['curso/nuevo'] = 'curso_controller/nuevo';
@@ -63,6 +63,10 @@ $route['curso/guardar'] = 'curso_controller/guardar';
 $route['curso/detalle/(:num)'] = 'curso_controller/detalle/$1';
 $route['curso/editar/(:num)'] = 'curso_controller/editar/$1';
 $route['curso/eliminar/(:num)'] = 'curso_controller/eliminar/$1';
+
+$route['login'] = 'login_controller/login';
+$route['logout'] = 'login_controller/logout';
+$route['escritorio'] = 'principal_controller';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
